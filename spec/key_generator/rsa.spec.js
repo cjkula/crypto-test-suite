@@ -1,4 +1,4 @@
-describe('KeyGenerator', function() {
+describe('KeyGenerator', function () {
 	
 	var keyGenerator = Crypto.generateKey('RS256');
 	
@@ -6,15 +6,20 @@ describe('KeyGenerator', function() {
 		expect(keyGenerator.algorithm).toBe('RS256');
 	});
 	
-	describe('generate()', function() {
+	describe('#generate', function () {
 		
-		it("should exist", function() {
+		var keyCountBefore;
+		
+		it("should exist", function () {
 			expect(typeof keyGenerator.generate).toBe('function');
 		});
 		
 		// do the operation
-		var keyCountBefore = Object.keys(Crypto.keys).length;
-		keyGenerator.generate( {keyId: 'mykey'} );
+		runs(function () {
+			keyCountBefore = Object.keys(Crypto.keys).length;
+			keyGenerator.generate( {keyId: 'mykey'} );
+		});
+		
 		waitsFor(function () {
 			return (Object.keys(Crypto.keys).length > keyCountBefore);
 		});

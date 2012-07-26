@@ -1,4 +1,4 @@
-describe("The Crypto interface", function() {
+describe("Crypto module", function() {
 	
 	it("should be defined as a global", function() {
 		expect(Crypto).toBeDefined();
@@ -8,7 +8,7 @@ describe("The Crypto interface", function() {
 		expect(window.Crypto).toBeDefined();
 	});
 	
-	describe("'encrypt' function", function() {
+	describe("#encrypt", function() {
 		it("should exist", function() {
 			expect(typeof Crypto.encrypt).toBe('function');
 		});
@@ -17,7 +17,7 @@ describe("The Crypto interface", function() {
 		});
 	});
 	
-	describe("'decrypt' function", function() {
+	describe("#decrypt", function() {
 		it("should exist", function() {
 			expect(typeof Crypto.decrypt).toBe('function');
 		});
@@ -26,7 +26,7 @@ describe("The Crypto interface", function() {
 		});
 	});
 
-	describe("'sign' function", function() {
+	describe("#sign", function() {
 		it("should exist", function() {
 			expect(typeof Crypto.sign).toBe('function');
 		});
@@ -35,7 +35,7 @@ describe("The Crypto interface", function() {
 		});
 	});
 
-	describe("'verify' function", function() {
+	describe("#verify", function() {
 		it("should exist", function() {
 			expect(typeof Crypto.verify).toBe('function');
 		});
@@ -44,7 +44,7 @@ describe("The Crypto interface", function() {
 		});
 	});
 
-	describe("'digest' function", function() {
+	describe("#digest", function() {
 		it("should exist", function() {
 			expect(typeof Crypto.digest).toBe('function');
 		});
@@ -53,7 +53,7 @@ describe("The Crypto interface", function() {
 		});
 	});	
 		
-	describe("'generateKey' function", function() {
+	describe("#generateKey", function() {
 		it("should exist", function() {
 			expect(typeof Crypto.generateKey).toBe('function');
 		});
