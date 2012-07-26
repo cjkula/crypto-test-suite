@@ -4,9 +4,9 @@ A quick attempt and proof-of-concept to flesh out some of the ideas discussed ea
 
 Dependencies are minimal:
 
-Node.js
-NPM (optional)
-jasmine-node (https://github.com/mhevery/jasmine-node)
+* Node.js
+* NPM (optional)
+* jasmine-node (https://github.com/mhevery/jasmine-node)
 
 To execute the suite, run `jasmine-node spec` at the project root. (Can also be done without NPM as per the instructions on the jasmine-node github site.)
 
