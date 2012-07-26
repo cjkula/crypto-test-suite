@@ -1,62 +1,34 @@
 Crypto = new (function() {
-		
-	function CryptoOperation(operation) {
-		this.operation = operation;
-	}
-	
-	function KeyGenerator(algorithm) {
-		this.algorithm = algorithm;
-	};
-	KeyGenerator.prototype.generate = function(params) {
-		var keyId, file;
-		keyId = params.keyId;
-		file = 'tmp/test_rsa';
-		
-		var exec = require('child_process').exec;
-		
-		// make sure tmp directory exists
-		exec('mkdir tmp', function () {
-			// delete previous tmp private key
-			exec('rm ' + file, function () {
-				// delete previous tmp public key
-				exec('rm ' + file + '.pub', function () {
-					// call keygen
-					exec("ssh-keygen -N '' -f " + file, function () {
-						// get the private key
-						exec("cat " + file, function (err, stdout) {
-							// put it in the key store
-							Crypto.keys[keyId] = stdout;
-						});
-					});
-				});
-			});
-		});	
-	};
+			
+	// CryptoOperation object module
+	this.CryptoOperation = require(__dirname + '/crypto/crypto_operation.js').objConstructor;
+	// KeyGenerator object module
+	this.KeyGenerator = require(__dirname + '/crypto/key_generator.js').objConstructor;
 	
 	this.keys = {};
 	
 	this.encrypt = function() {
-		return new CryptoOperation('encrypt');
+		return new Crypto.CryptoOperation('encrypt');
 	}
 
 	this.decrypt = function() {
-		return new CryptoOperation('decrypt');
+		return new Crypto.CryptoOperation('decrypt');
 	}
 
 	this.sign = function() {
-		return new CryptoOperation('sign');
+		return new Crypto.CryptoOperation('sign');
 	}
 
 	this.verify = function() {
-		return new CryptoOperation('verify');
+		return new Crypto.CryptoOperation('verify');
 	}
 
 	this.digest = function() {
-		return new CryptoOperation('digest');
+		return new Crypto.CryptoOperation('digest');
 	}
 	
 	this.generateKey = function(algorithm) {
-		return new KeyGenerator(algorithm);
+		return new Crypto.KeyGenerator(algorithm);
 	}
 
 })();
