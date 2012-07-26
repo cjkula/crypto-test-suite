@@ -1,14 +1,5 @@
 Crypto = new (function() {
-	
-	// function cmdLineCall(command, callback) {
-	// 	var exec, completed, result;
-	// 	exec = require('child_process').exec;
-	// 	result = null;
-	// 	exec(command, function(e, stdout) {
-	// 		result = stdout;
-	// 	});	
-	// }
-	
+		
 	function CryptoOperation(operation) {
 		this.operation = operation;
 	}
